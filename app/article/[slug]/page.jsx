@@ -10,24 +10,31 @@ export async function generateStaticParams() {
 
 export default async function Article({ params }) {
   const { slug } = params;
-
   try {
     const { content, frontMatter } = await getArticleBySlug(slug);
 
     return (
-      <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px" }}>
-        <h1>{frontMatter.title}</h1>
+      <div className="container mx-auto pt-10">
+        <h1 className="text-4xl">{frontMatter.title}</h1>
         <p>{frontMatter.date}</p>
-        <p>
+        <div>
           {frontMatter.tags.map((tag, index) => (
             <p key={index}>{tag}</p>
           ))}
-        </p>
-        <hr />
-        <div>{content}</div>
+        </div>
+        <div className="pt-20">{content}</div>
       </div>
     );
   } catch (error) {
     notFound();
   }
+}
+
+export async function generateMetadata({ params }) {
+  const slug = await params.slug;
+  const { content, frontMatter } = await getArticleBySlug(slug);
+  return {
+    title: frontMatter.title + " | Shento's Blog",
+    description: frontMatter.description,
+  };
 }

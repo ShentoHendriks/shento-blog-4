@@ -6,14 +6,15 @@ export default async function ArticleList() {
   const articles = await getAllArticles();
   return (
     <div className="container mx-auto pt-10">
-      <h1 className="text-4xl tracking-tight mb-10">Latest articles</h1>
+      <h1 className="mb-10 text-4xl tracking-tight">Latest articles</h1>
       <div className="grid grid-cols-3 gap-4">
         {articles.map((article) => (
           <article
             key={article.slug}
             style={{ marginBottom: "30px" }}
-            className="flex flex-col gap-5">
-            <div className="w-auto relative rounded-md overflow-hidden aspect-[5/3]">
+            className="flex flex-col gap-5"
+          >
+            <div className="relative aspect-[5/3] w-auto overflow-hidden rounded-md">
               <Link href={`/article/${article.slug}`}>
                 <Image
                   src={
@@ -31,11 +32,12 @@ export default async function ArticleList() {
               {article.tags &&
                 article.tags.map((tag, index) => (
                   <div
-                    className={`capitalize px-2 py-0.5 rounded-full ${
+                    className={`rounded-full px-2 py-0.5 capitalize ${
                       tag == "react" &&
-                      "text-blue-500 bg-blue-50 border border-blue-400"
+                      "border border-blue-400 bg-blue-50 text-blue-500"
                     }`}
-                    key={index}>
+                    key={index}
+                  >
                     {tag}
                   </div>
                 ))}
