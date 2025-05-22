@@ -13,7 +13,7 @@ export default async function ArticleList() {
             key={article.slug}
             style={{ marginBottom: "30px" }}
             className="flex flex-col gap-5">
-            <div className="w-auto relative h-[200px] rounded-md overflow-hidden">
+            <div className="w-auto relative rounded-md overflow-hidden aspect-[5/3]">
               <Link href={`/article/${article.slug}`}>
                 <Image
                   src={
