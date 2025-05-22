@@ -22,3 +22,35 @@ body {
   color: var(--foreground);
   font-family: Inter, Helvetica, sans-serif;
 }
+
+pre {
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 8px;
+  border: 1px solid rgb(206, 206, 206);
+}
+
+.highlighted {
+  background-color: rgba(200, 200, 255, 0.3);
+}
+
+.code-block:hover .copy-button {
+  opacity: 1;
+}
+
+.copy-button {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.blog-article {
+  max-width: 800px;
+  padding-bottom: 200px;
+}
+
+.blog-article h2 {
+  @apply mt-8 mb-4 text-2xl;
+}
+.blog-article p {
+  @apply mb-4;
+}

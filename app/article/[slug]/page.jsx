@@ -14,15 +14,24 @@ export default async function Article({ params }) {
     const { content, frontMatter } = await getArticleBySlug(slug);
 
     return (
-      <div className="container mx-auto pt-10">
+      <div className="container mx-auto px-4 pt-10">
         <h1 className="text-4xl">{frontMatter.title}</h1>
-        <p>{frontMatter.date}</p>
-        <div>
-          {frontMatter.tags.map((tag, index) => (
-            <p key={index}>{tag}</p>
-          ))}
+        <p className="my-2 text-gray-500">{frontMatter.date}</p>
+        <div className="my-2 flex gap-2">
+          {frontMatter.tags &&
+            frontMatter.tags.map((tag, index) => (
+              <div
+                className={`rounded-full px-2 py-0.5 capitalize ${
+                  tag == "react" &&
+                  "border border-blue-400 bg-blue-50 text-blue-500"
+                }`}
+                key={index}
+              >
+                {tag}
+              </div>
+            ))}
         </div>
-        <div className="pt-20">{content}</div>
+        <div className="blog-article pt-10">{content}</div>
       </div>
     );
   } catch (error) {

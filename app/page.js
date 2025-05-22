@@ -14,7 +14,7 @@ export default async function ArticleList() {
             style={{ marginBottom: "30px" }}
             className="flex flex-col gap-5"
           >
-            <div className="relative aspect-[5/3] w-auto overflow-hidden rounded-md">
+            <div className="relative aspect-[5/3] w-auto overflow-hidden rounded-md border border-gray-200">
               <Link href={`/article/${article.slug}`}>
                 <Image
                   src={

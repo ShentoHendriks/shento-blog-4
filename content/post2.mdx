@@ -11,7 +11,29 @@ This is my second article with MDX.
 
 ## Code Block Example
 
-```js
-const greeting = "Hello";
-console.log(`${greeting}, world!`);
+<TabsContainer filenames={["app.js", "styles.css", "index.html"]}>
+```js {2} 
+// This is app.
+console.log("Hello from app.js");
 ```
+
+```css
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+```
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+```
+
+</TabsContainer>
